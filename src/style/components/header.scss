@@ -1,0 +1,136 @@
+
+@import '../import/import';
+.header{
+    width:100%;
+    // height:100%;
+    position: fixed;
+    z-index: 10;
+
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 24px 24px 0 24px;
+        @include minWidth($lg){
+            justify-content: flex-start;
+        }
+    }
+    &__logo{
+        width: 40px;
+        height: 40px;
+        &-img{
+            width: 100%;
+        }
+    }
+    &__rectangle{
+        background: #FFFFFF;
+        mix-blend-mode: normal;
+        opacity: 0.25;
+        border: 1px solid #FFFFFF;
+        width: 40%;
+        height: 1px;
+        display:none;
+        @include minWidth($lg){
+            display:block;
+            position: absolute;
+            right: 39%;
+            z-index: 11;
+            margin-top: 10px;
+        }
+    }
+    &__links{
+        color: #FFFFFF;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(81.5485px);
+        list-style: none;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        padding-top: 118px;
+        @include maxWidth(767px){
+            left: 121px;
+        }
+        @include minWidth($md){
+            display: flex;
+            height: 96px;
+            padding-top: 0;
+            padding-left: 0;
+            margin: 0;
+            width: 450px;
+            justify-content: space-around;
+            right: 0;
+        }
+    }
+    &__link{
+        display: flex;
+        padding-bottom: 32px;
+        padding-left: 32px;
+        
+
+        @include minWidth($md){
+            padding-bottom: 0;
+            padding-left: 0;
+        }
+        & > a{
+            text-decoration: none;
+            color: #FFFFFF;
+            display:flex;
+            align-items: center;
+            
+            & > span{
+                margin-right: 10px;
+                font-family: 'Barlow Condensed';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 19px;
+                letter-spacing: 2.7px;
+                @include minWidth($md){
+                    display: none;
+                }
+            }
+            & > p {
+                text-transform: uppercase;
+                font-family: 'Barlow Condensed';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                letter-spacing: 2.7px;
+                margin-bottom: 0;
+                @include minWidth($md){
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    &__activeTab{
+        border-radius: 15px;
+        background-color: white;
+        width: 36px;
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: 21px;
+        display:none;
+        @include minWidth($md){
+            display: block;
+        }
+    }
+    &__menu{
+        @include minWidth($md){
+            display: none;
+        }
+        z-index: 10;
+        &-icon{
+            width: 24px;
+            height: 21px;
+            display:none;
+        }
+    }
+}
+.active{
+    display:block;
+}
