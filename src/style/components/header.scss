@@ -33,7 +33,7 @@
         @include minWidth($lg){
             display:block;
             position: absolute;
-            right: 39%;
+            right: 48%;
             z-index: 11;
             margin-top: 10px;
         }
@@ -63,12 +63,15 @@
             right: 0;
         }
     }
+    
     &__link{
         display: flex;
         padding-bottom: 32px;
         padding-left: 32px;
         
-
+        &.activeTab{
+            background-color: white;
+        }
         @include minWidth($md){
             padding-bottom: 0;
             padding-left: 0;
@@ -106,19 +109,7 @@
             }
         }
     }
-    &__activeTab{
-        border-radius: 15px;
-        background-color: white;
-        width: 36px;
-        height: 3px;
-        position: absolute;
-        bottom: 0;
-        left: 21px;
-        display:none;
-        @include minWidth($md){
-            display: block;
-        }
-    }
+    
     &__menu{
         @include minWidth($md){
             display: none;

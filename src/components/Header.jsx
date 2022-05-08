@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import "../style/components/header.scss";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import closemenu from '../assets/shared/icon-close.svg';
+import menu from '../assets/shared/icon-hamburger.svg';
 import logo from "../assets/shared/logo.svg";
-import menu  from '../assets/shared/icon-hamburger.svg';
-import closemenu from '../assets/shared/icon-close.svg'
-import { Link } from "react-router-dom";
+import "../style/components/header.scss";
 Header.propTypes = {};
 
 function Header(props) {
     const [showMenu,setShowMenu] = useState(false)
+
+    
     const handleClickMenu =(e)=>{
         // console.log(e);
         const menu = document.querySelectorAll('.header__menu-icon')
@@ -27,53 +28,59 @@ function Header(props) {
 
             }
     }
-    useEffect(()=>{
-        const tabs = document.querySelectorAll('.header__link');
-        const line = document.querySelector('.header__activeTab')
-        // console.log(tabs);
-        tabs.forEach((tab,index)=>{
-            tab.onclick = (e)=>{
-                line.style.left = tab.offsetLeft + "px"
-                line.style.width = tab.offsetWidth + "px"
-                // console.log([tab]);
-                // console.log(tab.offsetLeft);
-                // console.log(tab.offsetWidth);
-            }
-        })
-    },[])
-  return (
+    
+
+    const headerItems = [
+        {
+        to : '/',
+        number : '00',
+        content : 'Home'
+        },
+        {
+        to : '/destination',
+        number : '01',
+        content : 'Destination'
+        },
+        {
+        to : '/crew',
+        number : '02',
+        content : 'Crew'
+        },
+        {
+        to : '/technology',
+        number : '03',
+        content : 'Technology'
+        },
+    ]
+
+    
+    const tabLine = ({isActive})=> {
+        return {
+            borderBottom: isActive ? '2px solid white' : ''
+        }
+    }
+
+    return (
+
     <div className=" header">
         <div className="header__container">
-            <Link to='/' className="header__logo">
+            <Link to='/'  className="header__logo">
                 <img src={logo} alt="" className="header__logo-img" />
             </Link>
             <div className="header__rectangle"></div>
             <ul className="header__links">
-                <li className="header__link">
-                    <Link to='/'>
-                        <span>00</span>
-                        <p>Home</p>
-                    </Link>
-                </li>
-                <li className="header__link">
-                    <Link to='/destination'>
-                        <span>01</span>
-                        <p>DESTINATION</p>
-                    </Link>
-                </li>
-                <li className="header__link">
-                    <Link to='/crew'>
-                        <span>02</span>
-                        <p>Crew</p>
-                    </Link>
-                </li>
-                <li className="header__link">
-                    <Link to='/technology'>
-                        <span>03</span>
-                        <p>Technology</p>
-                    </Link>
-                </li>
-                <div className="header__activeTab" ></div>
+                {headerItems.map((headerItem,index)=>{
+                    return (
+                        <li key = {index} className="header__link">
+                        <NavLink to={headerItem.to} style={tabLine} >
+                            <span>{headerItem.number}</span>
+                            <p>{headerItem.content}</p>
+                        </NavLink>
+                        </li>
+
+                    )
+                })}
+                
             </ul>
             <div className="header__menu" onClick={handleClickMenu}>
                 <img src={menu} alt="" className='header__menu-icon active' />
@@ -86,4 +93,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+export default (Header);

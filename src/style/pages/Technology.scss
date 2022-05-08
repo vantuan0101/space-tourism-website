@@ -1,14 +1,13 @@
 @import '../import/import';
-.crew{
+
+.technology{
     text-align: center;
-    background-image: url('../../assets/crew/background-crew-mobile.jpg');
+    background-image: url('../../assets/technology/background-technology-mobile.jpg');
     @include minWidth($md){
-        background-image: url('../../assets/crew/background-crew-tablet.jpg');
+        background-image: url('../../assets/technology/background-technology-tablet.jpg');
     }
     @include minWidth($lg){
-        
-        // background-image: url('../../assets/crew/background-crew-desktop.jpg');
-        // background-image: url(bgDestinationDestop) ;
+        background-image: url('../../assets/technology/background-technology-desktop.jpg');
     }
     &__intro{
         padding-top:88px;
@@ -18,106 +17,110 @@
         width: 166px;
         font-family: 'Barlow Condensed';
         font-style: normal;
+        font-size: 16px;
         line-height: 19px;
         letter-spacing: 2.7px;
-        font-size: 16px;
         color: #FFFFFF;
+        mix-blend-mode: normal;
         @include minWidth($md){
             padding-top: 136px;
-            margin: 0 0 0 24px;
+            margin-left: 24px;
         }
         & > p:first-child{
             font-weight: 700;
-            // mix-blend-mode: normal;
             opacity: 0.25;
         }
         & > p:last-child{
             font-weight: 400;
-            letter-spacing: 2.7px;
             text-transform: uppercase;
             padding-left: 5px;
+
         }
     }
-    &__item{
-        @include minWidth($md){
-            display: flex;
-            flex-direction: column-reverse;
-            justify-content: space-around;
-        }
+    &__item {
         @include minWidth($lg){
-
+            display:flex;
             flex-direction: row-reverse;
-
         }
     }
     &__image{
-        width: 177.12px;
-        // height: 222px;
+        height: 222px;
         margin : 0 auto;   
-        // overflow: hidden;  
+        overflow: hidden;  
         border-bottom: 1px solid gray;
         @include minWidth($md){
-            width: 350px;
+            width: 100%;
+            height: 310px;  
         }
         @include minWidth($lg){
-            margin:0;
+            height: 450px; 
+            width: 515px;
+            margin-right: 0;
+            margin-left: 20%;
         }
         & > img {
             width: 100%;
+            height: 100%;
+            object-fit: fill;
+
+            
         }
     }
-
     &__container{
 
         font-family: 'Bellefair';
         font-style: normal;
         font-weight: 400;
         text-align: center;
-        text-transform: uppercase;
         color: #FFFFFF;
-        @include minWidth($lg){
-            padding-top:60px;
-        }
     }
     &__title{
         font-size: 16px;
         line-height: 18px;
+        text-transform: uppercase;
         mix-blend-mode: normal;
         opacity: 0.5;
         // margin: 0 auto;
         justify-content: center;
-        @include minWidth($md){
-            font-size: 24px;
-            line-height: 28px;
-        }
+
     }
 
     &__name{
         font-size: 24px;
         line-height: 28px;
+        text-transform: uppercase;
         // margin: 0 auto;
         padding:8px 0;
         @include minWidth($md){
             font-size: 40px;
             line-height: 46px;
         }
+        @include minWidth($lg){
+            font-size: 56px;
+            line-height: 64px; 
+        }
+
     }
 
     &__dsc{
-        font-family: 'Barlow';
-        font-size: 15px;
+        font-size: 14px;
         line-height: 25px;
         color: #D0D6F9;
         margin: 0 auto;
-        padding-top: 30px;
+        padding-left: 24px;
+        padding-right: 24px;
         padding-bottom: 30px;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-top: 30px;
         @include minWidth($md){
-            // font-size: 16px;
+            font-size: 16px;
             line-height: 28px;
-            width: 458px;
+            width:458px;
         }
+        @include minWidth($lg){
+            font-size: 18px;
+            line-height: 32px;
+        }
+
     }
 
 }

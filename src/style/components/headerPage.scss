@@ -1,10 +1,12 @@
 @import '../import/import';
-.header__destination{
+.header__page{
     display:flex;
     list-style: none;
     justify-content: center;
     & > a{
         text-decoration: none;
+        margin: 0 13px;
+        padding-bottom: 5px;
     }
     &-item{
         font-family: 'Barlow Condensed';
@@ -12,15 +14,14 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
-        /* identical to box height */
         letter-spacing: 2.3625px;
         color: #FFFFFF;
-        margin: 0 13px;
         position: relative;
+        @include minWidth($md){
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: 2.7px;
+        }
     }
-    &-line{
-        border: 1px solid white;
-        position:absolute;
-        bottom: 46%;
-    }
+    
 }
